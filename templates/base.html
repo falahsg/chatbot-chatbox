@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <meta charset="UTF-8" />
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chatbox">
+        <div class="chatbox__support">
+          <div class="chatbox__header">
+            <div class="chatbox__image--header">
+              <img
+                src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                alt="image"
+              />
+            </div>
+            <div class="chatbox__content--header">
+              <h4 class="chatbox__heading--header">iBot</h4>
+              <p class="chatbox__description--header">
+                Hi. Nama saya iBot, silakan tanyakan seputar Kampus Merdeka.
+              </p>
+            </div>
+          </div>
+          <div class="chatbox__messages">
+            <div></div>
+            <div class="messages__item messages__item--visitor">
+              <p>
+                1.
+                <a href="#" onclick='sendMessage("Apa itu Kampus Merdeka?")'
+                  >Apa itu Kampus Merdeka?</a
+                ><br />
+                2.
+                <a
+                  href="#"
+                  onclick='sendMessage("Kenapa harus ikut Kampus Merdeka?")'
+                  >Kenapa harus ikut Kampus Merdeka?</a
+                ><br />
+                3.
+                <a
+                  href="#"
+                  onclick='sendMessage("Apa tujuan dari kampus merdeka?")'
+                  >Apa tujuan dari kampus merdeka?</a
+                ><br />
+                4.
+                <a
+                  href="#"
+                  onclick='sendMessage("Syarat daftar kampus merdeka apa saja?")'
+                  >Syarat daftar kampus merdeka apa saja?</a
+                ><br />
+                5.
+                <a href="#" onclick='sendMessage("Apa itu Studi Independent")'
+                  >Apa itu Studi Independent</a
+                ><br />
+                6.
+                <a href="#" onclick='sendMessage("Kontak Admin")'
+                  >Kontak Admin</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="chatbox__footer">
+            <input type="text" placeholder="Write a message..." />
+            <button class="chatbox__send--footer send__button">Send</button>
+          </div>
+        </div>
+        <div class="chatbox__button">
+          <button>
+            <img
+              src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalMessage">Email berhasil terkirim!</p>
+      </div>
+    </div>
+
+    <script>
+      $SCRIPT_ROOT = {{ request.script_root|tojson }};
+      document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const emailSent = urlParams.get('emailSent');
+
+        if (emailSent === 'true') {
+            // Tampilkan pesan "Email terkirim" di chatbox
+            let msg = { name: "iBot", message: "Email terkirim" };
+            this.messages.push(msg);
+            this.updateChatText(chatbox); // Pastikan untuk memperbarui chatbox
+        }
+    });
+    </script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='app.js') }}"
+    ></script>
+  </body>
+</html>

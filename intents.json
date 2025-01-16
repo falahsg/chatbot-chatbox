@@ -1,0 +1,70 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hai", "halo", "hi", "pertanyaan"],
+      "responses": [
+        {
+          "text": "Hai, ada yang bisa iBot bantu? Silakan pilih pertanyaan:",
+          "follow_up": [
+            "<b><p>1.<a class='aa' href='#' onclick='sendMessage(\"Apa itu Kampus Merdeka?\")'>Apa itu Kampus Merdeka?</a><br />2. <a href='#' onclick='sendMessage(\"Kenapa harus ikut Kampus Merdeka?\")'>Kenapa harus ikut Kampus Merdeka?</a></p>3. <a href='#' onclick='sendMessage(\"Apa tujuan dari kampus merdeka?\")'>Apa tujuan dari kampus merdeka?</a><br />4. <a href='#' onclick='sendMessage(\"Syarat daftar kampus merdeka apa saja?\")'>Syarat daftar kampus merdeka apa saja?</a><br />5. <a href='#' onclick='sendMessage(\"Apa itu Studi Independent\")'>Apa itu Studi Independent</a><br />6. <a href='#' onclick='sendMessage(\"Kontak Admin\")'>Kontak Admin</a></b>"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "pilihan_1",
+      "patterns": ["Apa itu Kampus Merdeka?", "1", "satu"],
+      "responses": [
+        "Kampus Merdeka adalah program yang memberikan kesempatan kepada mahasiswa untuk belajar di luar kampus.<br /><br /><a href='#' onclick='sendMessage(\"pertanyaan\")'><b>Kembali ke pertanyaan</b></a>"
+      ]
+    },
+    {
+      "tag": "pilihan_2",
+      "patterns": ["Kenapa harus ikut Kampus Merdeka?", "2", "dua"],
+      "responses": [
+        "Kampus Merdeka memberikan banyak manfaat, termasuk pengalaman praktis dan jaringan yang lebih luas.<br /><br /><a href='#' onclick='sendMessage(\"pertanyaan\")'><b>Kembali ke pertanyaan</b></a>"
+      ]
+    },
+    {
+      "tag": "pilihan_3",
+      "patterns": ["Apa tujuan dari kampus merdeka?", "3", "tiga"],
+      "responses": [
+        "Tujuan kebijakan Kampus Merdeka adalah memberikan kesempatan kepada mahasiswa untuk memilih mata kuliah yang akan mereka tempuh berdasarkan keinginan sendiri serta mendorong mahasiswa meningkatkan soft skills serta hard skills agar siap bersaing dalam dunia global.<br /><br /><a href='#' onclick='sendMessage(\"pertanyaan\")'><b>Kembali ke pertanyaan</b></a>"
+      ]
+    },
+    {
+      "tag": "pilihan_4",
+      "patterns": ["Syarat daftar kampus merdeka apa saja?", "4", "empat"],
+      "responses": [
+        "Persyaratan mengikuti program Kampus Merdeka, yaitu merupakan mahasiswa yang berasal dari Program Studi terakreditasi dan terdaftar aktif pada PDDikti.<br /><br /><a href='#' onclick='sendMessage(\"pertanyaan\")'><b>Kembali ke pertanyaan</b></a>"
+      ]
+    },
+    {
+      "tag": "pilihan_5",
+      "patterns": ["Apa itu Studi Independent", "5", "Lima"],
+      "responses": [
+        "Mewujudkan gagasan mahasiswa dalam mengembangkan diri melalui aktivitas di luar perkuliahan dan menambah kompetensi spesifik serta praktis yang akan digunakan dalam dunia industri.<br /><br /><a href='#' onclick='sendMessage(\"pertanyaan\")'><b>Kembali ke pertanyaan</b></a>"
+      ]
+    },
+    {
+      "tag": "kontak_admin",
+      "patterns": ["Kontak Admin", "kontak", "admin", "email", "cp", "Form"],
+      "responses": [
+        {
+          "text": "Silakan isi form berikut untuk menghubungi admin:",
+          "follow_up": [
+            "<form id='contactForm' action='/kontak_admin' method='post'><label>Nama:</label><br><input type='text' id='nama' name='nama'><br><label>Email:</label><br><input type='email' id='email' name='email'><br><label>No. Telp:</label><br><input type='tel' id='no_telp' name='no_telp'><br><label>Pertanyaan:</label><br><textarea id='pertanyaan' name='pertanyaan'></textarea><br><button type='submit'>Kirim</button></form>"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "default",
+      "patterns": ["*"],
+      "responses": [
+        "Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba pertanyaan lain."
+      ]
+    }
+  ]
+}
