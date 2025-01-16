@@ -2,8 +2,7 @@
 This repo currently contains the starter files.
 
 Clone repo and create a virtual environment
-```
-```
+
 Install dependencies
 ```
 $ (venv) pip install Flask torch torchvision nltk
